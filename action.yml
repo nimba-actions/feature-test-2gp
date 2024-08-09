@@ -14,7 +14,7 @@ inputs:
     description: 'Name of the scratch org config to use'
     required: true
     default: feature
-  commit-status-name:
+  flow-options:
     description: 'Name of an optional extra commit status to set from build results'
     required: false
     default:
@@ -27,6 +27,6 @@ runs:
         org-name: '${{ inputs.org-name }}'
         cumulusci-version: '${{ inputs.cumulusci-version }}'
         sfdx-version: '${{ inputs.sfdx-version }}'
-        commit-status-name: '${{ inputs.commit-status-name }}'
+        commit-status-name: '${{ inputs.flow-options }}'
         flow-name: ci_feature_2gp
         
