@@ -27,6 +27,6 @@ runs:
         org-name: '${{ inputs.org-name }}'
         cumulusci-version: '${{ inputs.cumulusci-version }}'
         sfdx-version: '${{ inputs.sfdx-version }}'
-        commit-status-name: '${{ inputs.flow-options }}'
+        flow-options: '${{ inputs.flow-options }}'
         flow-name: ci_feature_2gp
         
