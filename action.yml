@@ -18,6 +18,11 @@ inputs:
     description: 'Name of an optional extra commit status to set from build results'
     required: false
     default:
+  debug:
+        description: 'Display debug logs during Flow Execution'
+        required: false
+        default: false
+        type: boolean
 runs:
   using: "composite"
   steps:
@@ -28,5 +33,6 @@ runs:
         cumulusci-version: '${{ inputs.cumulusci-version }}'
         sfdx-version: '${{ inputs.sfdx-version }}'
         flow-options: '${{ inputs.flow-options }}'
+        debug: '${{ inputs.debug }}'
         flow-name: ci_feature_2gp
         
