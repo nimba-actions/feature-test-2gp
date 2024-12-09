@@ -1,38 +1,42 @@
 name: "Feature Test - 2GP"
 description: "Create an scratch org containing a 2GP from the Build Feature Test Package build, and run Apex tests"
 inputs:
+  github-token:
+    description: "Required only if running in a private organization."
+    required: false
+    default: ""
   cumulusci-version:
-    description: 'version of CumulusCI to install'
+    description: "version of CumulusCI to install"
     required: false
   sfdx-version:
-    description: 'version of SFDX to install'
+    description: "version of SFDX to install"
     required: false
   dev-hub-auth-url:
-    description: 'SFDX auth URL for the Dev Hub'
+    description: "SFDX auth URL for the Dev Hub"
     required: true
   org-name:
-    description: 'Name of the scratch org config to use'
+    description: "Name of the scratch org config to use"
     required: true
     default: feature
   flow-options:
-    description: 'Name of an optional extra commit status to set from build results'
+    description: "Name of an optional extra commit status to set from build results"
     required: false
     default:
   debug:
-        description: 'Display debug logs during Flow Execution'
-        required: false
-        default: false
-        type: boolean
+    description: "Display debug logs during Flow Execution"
+    required: false
+    default: false
+    type: boolean
 runs:
   using: "composite"
   steps:
     - uses: nimba-actions/run-flow-scratch@main
       with:
-        dev-hub-auth-url: '${{ inputs.dev-hub-auth-url }}'
-        org-name: '${{ inputs.org-name }}'
-        cumulusci-version: '${{ inputs.cumulusci-version }}'
-        sfdx-version: '${{ inputs.sfdx-version }}'
-        flow-options: '${{ inputs.flow-options }}'
-        debug: '${{ inputs.debug }}'
+        github-token: "${{ inputs.github-token }}"
+        dev-hub-auth-url: "${{ inputs.dev-hub-auth-url }}"
+        org-name: "${{ inputs.org-name }}"
+        cumulusci-version: "${{ inputs.cumulusci-version }}"
+        sfdx-version: "${{ inputs.sfdx-version }}"
+        flow-options: "${{ inputs.flow-options }}"
+        debug: "${{ inputs.debug }}"
         flow-name: ci_feature_2gp
-        
