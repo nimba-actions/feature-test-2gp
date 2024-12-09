@@ -1,7 +1,7 @@
 name: "Feature Test - 2GP"
 description: "Create an scratch org containing a 2GP from the Build Feature Test Package build, and run Apex tests"
 inputs:
-  github-token:
+  cci-token:
     description: "Required only if running in a private organization."
     required: false
     default: ""
@@ -32,7 +32,7 @@ runs:
   steps:
     - uses: nimba-actions/run-flow-scratch@main
       with:
-        github-token: "${{ inputs.github-token }}"
+        cci-token: "${{ inputs.cci-token }}"
         dev-hub-auth-url: "${{ inputs.dev-hub-auth-url }}"
         org-name: "${{ inputs.org-name }}"
         cumulusci-version: "${{ inputs.cumulusci-version }}"
